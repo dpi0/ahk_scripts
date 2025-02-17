@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -15,13 +15,11 @@ psScript =
 ; Windows + Shift + d
 #+d::
 RunWait PowerShell.exe -Command &{%psScript%} '0',, hide
-RunWait wsl.exe --exec bash /home/wsl/workspace/infrastructure/homedirs/common/bin/background dark,, hide
 return
 
 ; Windows + Shift + l
 #+l::
 RunWait PowerShell.exe -Command &{%psScript%} '1',, hide
-RunWait wsl.exe --exec bash /home/wsl/workspace/infrastructure/homedirs/common/bin/background light,, hide
 return
 
 ; New toggle hotkey: Windows + t
@@ -32,11 +30,9 @@ return
     {
         ; Switch to dark mode (value 0)
         RunWait PowerShell.exe -Command &{%psScript%} '0',, hide
-        RunWait wsl.exe --exec bash /home/wsl/workspace/infrastructure/homedirs/common/bin/background dark,, hide
     }
     else  ; Otherwise (assumed dark mode), switch to light mode (value 1)
     {
         RunWait PowerShell.exe -Command &{%psScript%} '1',, hide
-        RunWait wsl.exe --exec bash /home/wsl/workspace/infrastructure/homedirs/common/bin/background light,, hide
     }
 return
