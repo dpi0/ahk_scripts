@@ -1,8 +1,4 @@
-SetNumlockState, AlwaysOn
-; Capslock to Esc
-F10:: Esc 
-
-^+g:: Run, "firefox" -P guest
+^+g:: Run "firefox" -P guest
 #z:: Run taskmgr.exe
 #Left:: #^Left
 #Right:: #^Right
@@ -15,26 +11,30 @@ F10:: Esc
 #y::ToggleFileExtensions("HideFileExt", "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced")
 
 #e::OpenProgram("ahk_class CabinetWClass", "explorer.exe")
-#s::OpenProgram("1.5a", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Everything 1.5a.lnk")
+#s::OpenProgram("1.5a", A_ProgramData "\Microsoft\Windows\Start Menu\Programs\Everything 1.5a.lnk")
 
+; Autocomplete text
 ;::gh::github
 ;::rd::reddit
 ;::tt::tutorial
 
+; Global search
 ;!x::OpenWebsite("https://www.google.com/search?q=" Clipboard)
 
 !End::DllCall("PowrProf\SetSuspendState", "Int", 1, "Int", 0, "Int", 0) ; Hibernate
 #^End::shutdown, 1 ; Shutdown
 #+End::shutdown, 2 ; Restart
-#End::DllCall("PowrProf\SetSuspendState", "Int", 0, "Int", 0, "Int", 0) ; Sleep
+#End::Shutdown, 0  ; Sign out (Log off)
+;#End::DllCall("PowrProf\SetSuspendState", "Int", 0, "Int", 0, "Int", 0) ; Sleep
+
+;----------------------------------------------------------------------------
+; A_UserProfile equivalent to $HOME
+nircmdPath := A_UserProfile "\data\Applications\nircmd\nircmd.exe"
+
+; Force Numlock to be On
+SetNumlockState, AlwaysOn
 
 Numpad0:: !Tab
-;----------------------------------------------------------------------------
-nircmdPath := "C:\data\Windows Scripts\nircmd\nircmd.exe"
-
-; Turn Numlock On
-SetNumLockState,On
-
 Numpad1:: Send {Volume_Down}
 Numpad2:: Send {Media_Play_Pause}
 Numpad3:: Send {Volume_Up}
