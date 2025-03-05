@@ -28,9 +28,6 @@
 ;#End::DllCall("PowrProf\SetSuspendState", "Int", 0, "Int", 0, "Int", 0) ; Sleep
 
 ;----------------------------------------------------------------------------
-; A_UserProfile equivalent to $HOME
-nircmdPath := A_UserProfile "\data\Applications\nircmd\nircmd.exe"
-
 ; Force Numlock to be On
 SetNumlockState, AlwaysOn
 
@@ -43,7 +40,7 @@ Numpad6:: Send {Media_Next}
 Numpad7:: #^Left
 Numpad8:: #Tab
 Numpad9:: #^Right
-NumpadAdd:: Run nircmdPath " changebrightness +5"
-NumpadEnter:: Run nircmdPath " changebrightness -5"
+NumpadAdd:: Run "C:\Users\dpi0\data\Applications\nircmd\nircmd.exe" changebrightness +5
+NumpadEnter:: Run "C:\Users\dpi0\data\Applications\nircmd\nircmd.exe" changebrightness -5
 
 ; NOTE: if want to use application specific binds, then always put them at the bottom of this file (until i find a better solution)
