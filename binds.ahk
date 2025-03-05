@@ -30,6 +30,11 @@ F10:: Esc
 
 Numpad0:: !Tab
 ;----------------------------------------------------------------------------
+nircmdPath := "C:\data\Windows Scripts\nircmd\nircmd.exe"
+
+; Turn Numlock On
+SetNumLockState,On
+
 Numpad1:: Send {Volume_Down}
 Numpad2:: Send {Media_Play_Pause}
 Numpad3:: Send {Volume_Up}
@@ -38,7 +43,7 @@ Numpad6:: Send {Media_Next}
 Numpad7:: #^Left
 Numpad8:: #Tab
 Numpad9:: #^Right
-NumpadAdd:: Run "S:\windows-apps\nirsoft-apps\nircmd\nircmd.exe" changebrightness +5
-NumpadEnter:: Run "S:\windows-apps\nirsoft-apps\nircmd\nircmd.exe" changebrightness -5
+NumpadAdd:: Run nircmdPath " changebrightness +5"
+NumpadEnter:: Run nircmdPath " changebrightness -5"
 
 ; NOTE: if want to use application specific binds, then always put them at the bottom of this file (until i find a better solution)
