@@ -7,7 +7,7 @@ SetTitleMatchMode 2
 SetTimer, CheckBattery, 60000  ; Check battery every 60 seconds
 
 ; Configurable settings
-threshold := 85  ; Battery percentage threshold
+threshold := 20  ; Battery percentage threshold
 alarmFreq := 750  ; Frequency of beep (Hz)
 alarmDuration := 500  ; Duration of beep (ms)
 msgBoxDelay := 5000  ; Delay before repeating message (ms)
